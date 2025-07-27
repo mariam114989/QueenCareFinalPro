@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueenCare - منتجات العناية بالبشرة</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-top">
+                    <div class="nav-logo">
+                        <h1>QueenCare 👑</h1>
+                    </div>
+                    <div class="nav-auth">
+                        <button id="login-btn" class="btn-secondary">تسجيل الدخول</button>
+                        <button id="signup-btn" class="btn-primary">إنشاء حساب</button>
+                        <div id="user-menu" class="user-menu" style="display: none;">
+                            <span id="user-name"></span>
+                            <button id="logout-btn" class="btn-secondary">تسجيل الخروج</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="#home" onclick="showSection('home')">الرئيسية</a>
+                    <a href="#products" onclick="showSection('products')">المنتجات</a>
+                    <a href="#articles" onclick="showSection('articles')">المقالات الطبية</a>
+                    <a href="#skin-analysis" onclick="showSection('skin-analysis')">تحليل البشرة</a>
+                    <a href="#appointments" onclick="showSection('appointments')">المواعيد</a>
+                    <a href="#cart" onclick="showSection('cart')">السلة (<span id="cart-count">0</span>)</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">مرحباً بك في QueenCare</h1>
+                <p class="hero-subtitle">منتجات العناية بالبشرة الطبيعية والفعالة</p>
+                <p class="hero-description">اكتشفي مجموعتنا المتميزة من منتجات العناية بالبشرة المصممة خصيصاً لجمالك الطبيعي</p>
+                <button class="btn-primary hero-btn" onclick="scrollToSection('products')">تسوقي الآن</button>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="products-section">
+            <div class="container">
+                <h2 class="section-title">منتجاتنا</h2>
+                
+                <!-- Category Filter -->
+                <div class="category-filter">
+                    <button class="filter-btn active" data-category="all">جميع المنتجات</button>
+                    <button class="filter-btn" data-category="skincare">العناية بالبشرة</button>
+                    <button class="filter-btn" data-category="haircare">العناية بالشعر</button>
+                    <button class="filter-btn" data-category="bodycare">العناية بالجسم</button>
+                    <button class="filter-btn" data-category="nailcare">العناية بالأظافر</button>
+                    <button class="filter-btn" data-category="fragrance">العطور</button>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="products-grid" class="products-grid">
+                    <!-- Products will be loaded here via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="articles" class="articles-section" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">المقالات الطبية</h2>
+                <p class="section-description">معلومات طبية موثوقة حول العناية بالبشرة والعلاجات التجميلية</p>
+                
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <div class="article-header">
+                            <h3>💉 حقن الفيلر - دليل شامل</h3>
+                        </div>
+                        <div class="article-content">
+                            <h4>ما هو الفيلر؟</h4>
+                            <p>الفيلر هو مادة طبية تُحقن تحت الجلد لملء التجاعيد والخطوط الدقيقة، وإعادة الحجم المفقود للوجه، وتحسين ملامح الوجه بشكل طبيعي.</p>
+                            
+                            <h4>أنواع الفيلر:</h4>
+                            <ul>
+                                <li><strong>حمض الهيالورونيك:</strong> الأكثر شيوعاً وأماناً، قابل للذوبان</li>
+                                <li><strong>الكولاجين:</strong> طبيعي ولكن مؤقت المفعول</li>
+                                <li><strong>هيدروكسي أباتيت الكالسيوم:</strong> طويل المدى</li>
+                            </ul>
+                            
+                            <h4>المناطق المناسبة للحقن:</h4>
+                            <ul>
+                                <li>الشفاه لزيادة الحجم والتحديد</li>
+                                <li>الخدود لاستعادة الامتلاء</li>
+                                <li>تحت العينين لعلاج الهالات</li>
+                                <li>خطوط الابتسامة والتجاعيد</li>
+                                <li>الذقن لتحسين الشكل</li>
+                            </ul>
+                            
+                            <h4>ما بعد الحقن:</h4>
+                            <ul>
+                                <li>تجنب التدليك لمدة 24 ساعة</li>
+                                <li>تجنب الرياضة الشاقة لمدة يومين</li>
+                                <li>استخدام كمادات باردة للتورم</li>
+                                <li>تجنب أشعة الشمس المباشرة</li>
+                            </ul>
+                            
+                            <h4>المخاطر والآثار الجانبية:</h4>
+                            <ul>
+                                <li>تورم وكدمات مؤقتة</li>
+                                <li>حساسية نادرة</li>
+                                <li>عدم تماثل إذا لم يتم بخبرة</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        <div class="article-header">
+                            <h3>💫 البوتوكس - العلاج الأمثل للتجاعيد</h3>
+                        </div>
+                        <div class="article-content">
+                            <h4>ما هو البوتوكس؟</h4>
+                            <p>البوتوكس هو بروتين طبيعي مُنقى يُستخدم لإرخاء العضلات المسؤولة عن تكوين التجاعيد، مما يؤدي إلى نعومة الجلد ومظهر أكثر شباباً.</p>
+                            
+                            <h4>المناطق المناسبة للعلاج:</h4>
+                            <ul>
+                                <li><strong>الجبهة:</strong> لعلاج خطوط الجبهة الأفقية</li>
+                                <li><strong>بين الحاجبين:</strong> لعلاج خطوط العبوس</li>
+                                <li><strong>حول العينين:</strong> لعلاج خطوط الضحك</li>
+                                <li><strong>الرقبة:</strong> لشد عضلات الرقبة</li>
+                            </ul>
+                            
+                            <h4>مدة المفعول:</h4>
+                            <p>يبدأ المفعول خلال 3-7 أيام ويستمر لمدة 3-6 أشهر، ويمكن إعادة الحقن بأمان.</p>
+                            
+                            <h4>التحضير للجلسة:</h4>
+                            <ul>
+                                <li>تجنب الأسبرين ومضادات التخثر</li>
+                                <li>تجنب الكحول قبل 24 ساعة</li>
+                                <li>إخبار الطبيب عن أي أدوية</li>
+                            </ul>
+                            
+                            <h4>ما بعد الحقن:</h4>
+                            <ul>
+                                <li>تجنب الاستلقاء لمدة 4 ساعات</li>
+                                <li>تجنب التدليك أو الضغط</li>
+                                <li>تجنب الرياضة لمدة 24 ساعة</li>
+                                <li>تجنب الحرارة العالية</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        <div class="article-header">
+                            <h3>🌟 العناية بالبشرة - أساسيات الجمال</h3>
+                        </div>
+                        <div class="article-content">
+                            <h4>روتين العناية اليومي:</h4>
+                            
+                            <h5>الصباح:</h5>
+                            <ol>
+                                <li><strong>التنظيف:</strong> استخدمي منظف لطيف مناسب لنوع بشرتك</li>
+                                <li><strong>التونر:</strong> لتوازن درجة حموضة البشرة</li>
+                                <li><strong>السيروم:</strong> فيتامين سي للحماية من الأكسدة</li>
+                                <li><strong>المرطب:</strong> حسب نوع البشرة</li>
+                                <li><strong>واقي الشمس:</strong> SPF 30 أو أعلى</li>
+                            </ol>
+                            
+                            <h5>المساء:</h5>
+                            <ol>
+                                <li><strong>إزالة المكياج:</strong> بمنظف زيتي أو ماء ميسيلار</li>
+                                <li><strong>التنظيف العميق:</strong> منظف مائي</li>
+                                <li><strong>التقشير:</strong> 2-3 مرات أسبوعياً</li>
+                                <li><strong>السيروم:</strong> الريتينول أو حمض الهيالورونيك</li>
+                                <li><strong>المرطب الليلي:</strong> أغنى من النهاري</li>
+                            </ol>
+                            
+                            <h4>نصائح حسب نوع البشرة:</h4>
+                            
+                            <h5>البشرة الدهنية:</h5>
+                            <ul>
+                                <li>استخدمي منتجات خالية من الزيوت</li>
+                                <li>حمض الساليسيليك للتقشير</li>
+                                <li>قناع الطين أسبوعياً</li>
+                            </ul>
+                            
+                            <h5>البشرة الجافة:</h5>
+                            <ul>
+                                <li>مرطبات غنية بالسيراميد</li>
+                                <li>تجنبي الماء الساخن</li>
+                                <li>استخدمي زيوت طبيعية</li>
+                            </ul>
+                            
+                            <h5>البشرة الحساسة:</h5>
+                            <ul>
+                                <li>منتجات خالية من العطور</li>
+                                <li>اختبري المنتج قبل الاستخدام</li>
+                                <li>تجنبي التقشير القاسي</li>
+                            </ul>
+                            
+                            <h4>مكونات مهمة للعناية:</h4>
+                            <ul>
+                                <li><strong>فيتامين سي:</strong> مضاد أكسدة ومفتح</li>
+                                <li><strong>الريتينول:</strong> مضاد للشيخوخة</li>
+                                <li><strong>حمض الهيالورونيك:</strong> ترطيب مكثف</li>
+                                <li><strong>النياسيناميد:</strong> تقليل المسام</li>
+                                <li><strong>أحماض AHA/BHA:</strong> تقشير لطيف</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skin Analysis Section -->
+        <section id="skin-analysis" class="skin-analysis-section">
+            <div class="container">
+                <h2 class="section-title">تحليل نوع البشرة بالذكاء الاصطناعي</h2>
+                <p class="section-description">احصلي على تحليل مجاني لنوع بشرتك واكتشفي المنتجات المناسبة لك</p>
+                
+                <div class="analysis-form">
+                    <form id="skin-analysis-form">
+                        <div class="form-group">
+                            <label>العمر:</label>
+                            <select name="age" required>
+                                <option value="">اختاري عمرك</option>
+                                <option value="under-20">أقل من 20</option>
+                                <option value="20-30">20-30</option>
+                                <option value="30-40">30-40</option>
+                                <option value="40-50">40-50</option>
+                                <option value="over-50">أكثر من 50</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>مشاكل البشرة الحالية:</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="issues" value="acne"> حب الشباب</label>
+                                <label><input type="checkbox" name="issues" value="dryness"> جفاف</label>
+                                <label><input type="checkbox" name="issues" value="oiliness"> دهنية</label>
+                                <label><input type="checkbox" name="issues" value="sensitivity"> حساسية</label>
+                                <label><input type="checkbox" name="issues" value="dark-spots"> بقع داكنة</label>
+                                <label><input type="checkbox" name="issues" value="wrinkles"> تجاعيد</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>روتين العناية الحالي:</label>
+                            <textarea name="routine" placeholder="اكتبي روتين العناية اليومي الحالي"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary">تحليل البشرة</button>
+                    </form>
+                </div>
+
+                <div id="analysis-results" class="analysis-results" style="display: none;">
+                    <!-- Results will be shown here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Appointments Section -->
+        <section id="appointments" class="appointments-section">
+            <div class="container">
+                <h2 class="section-title">حجز موعد مع الطبيب</h2>
+                <p class="section-description">احجزي موعداً مع أطبائنا المختصين في العناية بالبشرة</p>
+                
+                <div class="appointment-form">
+                    <form id="appointment-form">
+                        <div class="form-group">
+                            <label>اختاري الطبيب:</label>
+                            <select name="doctor_id" required>
+                                <option value="">اختاري طبيب</option>
+                                <!-- Doctors will be loaded via JavaScript -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>التاريخ:</label>
+                            <input type="date" name="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>الوقت:</label>
+                            <select name="time" required>
+                                <option value="">اختاري الوقت</option>
+                                <!-- Times will be populated based on selected doctor -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>طريقة الدفع:</label>
+                            <select name="payment_method" required>
+                                <option value="">اختاري طريقة الدفع</option>
+                                <option value="cash_on_delivery">الدفع عند الاستلام</option>
+                                <option value="syriatel_cash">سيرياتيل كاش</option>
+                                <option value="bank_al_baraka">بنك البركة</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>ملاحظات (اختياري):</label>
+                            <textarea name="notes" placeholder="أي ملاحظات إضافية"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary">حجز الموعد</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section id="cart" class="cart-section">
+            <div class="container">
+                <h2 class="section-title">سلة التسوق</h2>
+                <div id="cart-content">
+                    <div id="empty-cart" class="empty-cart">
+                        <p>سلة التسوق فارغة</p>
+                        <button class="btn-primary" onclick="scrollToSection('products')">تسوقي الآن</button>
+                    </div>
+                    <div id="cart-items" style="display: none;">
+                        <!-- Cart items will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('login-modal')">&times;</span>
+            <h2>تسجيل الدخول</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label>البريد الإلكتروني:</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور:</label>
+                    <input type="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary">تسجيل الدخول</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signup-modal')">&times;</span>
+            <h2>إنشاء حساب جديد</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label>الاسم:</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني:</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور:</label>
+                    <input type="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary">إنشاء الحساب</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>👑 QueenCare</h3>
+                    <p>منتجات العناية بالبشرة الطبيعية والفعالة</p>
+                </div>
+                <div class="footer-section">
+                    <h4>معلومات الاتصال</h4>
+                    <ul>
+                        <li>📧 البريد الإلكتروني: antiageing82@gmail.com</li>
+                        <li>📱 رقم الهاتف: +963 XXX XXX XXX</li>
+                        <li>🕒 ساعات العمل: 9:00 ص - 6:00 م</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#articles">المقالات الطبية</a></li>
+                        <li><a href="#skin-analysis">تحليل البشرة</a></li>
+                        <li><a href="#appointments">المواعيد</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>طرق الدفع</h4>
+                    <ul>
+                        <li>الدفع عند الاستلام</li>
+                        <li>سيرياتيل كاش</li>
+                        <li>بنك البركة</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 QueenCare. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
+
